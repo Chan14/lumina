@@ -1,8 +1,9 @@
 import json
 import os
 from datetime import datetime
+from pathlib import Path
 
-GOALS_FILE = os.path.join(os.path.dirname(__file__), "goals.json")
+GOALS_FILE = Path("data") / "goals.json"
 
 
 def load_goals():
