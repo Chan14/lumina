@@ -1,0 +1,52 @@
+# Environment variables
+.env
+.env.*
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Package distribution
+*.egg-info/
+build/
+dist/
+
+# Logs and runtime files
+*.log
+*.pid
+*.jsonl
+
+# Output & data
+*.csv
+*.tsv
+*.zip
+*.pkl
+*.db
+*.sqlite
+*.npy
+*.npz
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# Gemini or API auth/cache (if used)
+.cache/
+token.json
+*.secret.json
+
+# System files
+.DS_Store
+Thumbs.db
