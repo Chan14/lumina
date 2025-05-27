@@ -3,7 +3,9 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-GOALS_FILE = Path("data") / "goals.json"
+# Get the absolute path to the project's root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+GOALS_FILE = PROJECT_ROOT / "data" / "goals.json"
 
 
 def load_goals():

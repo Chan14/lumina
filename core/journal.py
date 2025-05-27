@@ -2,19 +2,21 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-JOURNAL_PATH = Path("data") / "journal.json"
+# Get the absolute path to the project's root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+JOURNAL_FILE = PROJECT_ROOT / "data" / "journal.json"
 
 
 def load_notes():
-    if JOURNAL_PATH.exists():
-        with open(JOURNAL_PATH, "r", encoding="utf-8") as f:
+    if JOURNAL_FILE.exists():
+        with open(JOURNAL_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return []
 
 
 def _save_notes(notes):
-    JOURNAL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(JOURNAL_PATH, "w", encoding="utf-8") as f:
+    JOURNAL_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(JOURNAL_FILE, "w", encoding="utf-8") as f:
         json.dump(notes, f, indent=2, ensure_ascii=False)
 
 
