@@ -5,7 +5,7 @@ from core.journal import add_note, show_notes
 from core.review import generate_study_review_gemini
 
 
-def main():
+def _print_menu():
     print("✨ Lumina: Your Learning Companion ✨")
     print("1. Add a learning note")
     print("2. Show all notes")
@@ -14,7 +14,17 @@ def main():
     print("5. Get AI study review")
     print("6. Exit")
 
+
+def get_sub_prompt_from_console():
+    print(
+        "Please enter any additional context or questions for Lumina (press Enter to skip):"
+    )
+    return input().strip()
+
+
+def main():
     while True:
+        _print_menu()
         try:
             choice = input("Choose an option: ").strip()
 
@@ -35,9 +45,10 @@ def main():
                     "Review notes from how many past days? (default 7): "
                 ).strip()
                 days = int(days) if days else 7
+                sub_prompt = get_sub_prompt_from_console()
                 print("🤖 Let me analyze your recent learning...")
                 try:
-                    summary = generate_study_review_gemini(days)
+                    summary = generate_study_review_gemini(days, sub_prompt)
                     print("\n🧠 Study Review:\n")
                     print(summary)
                 except Exception as e:
